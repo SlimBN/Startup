@@ -5,6 +5,12 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+
+// MongoDB connectors part
+var mongoose = require('mongoose');
+// Change with mongodb database name
+mongoose.connect('mongodb://localhost/startupdb');
+
 var routes = require('./routes/index');
 var users = require('./routes/users');
 

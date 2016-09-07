@@ -1,7 +1,7 @@
 {
   "name": "startup-generator",
   "description": "NodeJS startup application generator",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "author": "Slim Ben Nasrallah <slim@devagnos.com>",
   "contributors": [
     "Sami Ayed <sami.ayed@devagnos.com>"

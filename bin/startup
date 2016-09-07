@@ -111,6 +111,7 @@ function createApplication(app_name, path) {
   var sass = loadTemplate('css/style.sass');
 
   mkdir(path, function(){
+    mkdir(path + '/models');
     mkdir(path + '/public');
     mkdir(path + '/public/javascripts');
     mkdir(path + '/public/images');
@@ -172,6 +173,7 @@ function createApplication(app_name, path) {
           'cookie-parser': '~1.4.3',
           'debug': '~2.2.0',
           'morgan': '~1.7.0',
+          'mongoose': '*',
           'serve-favicon': '~2.3.0'
       }
     }
