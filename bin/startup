@@ -109,6 +109,7 @@ function createApplication(app_name, path) {
   var stylus = loadTemplate('css/style.styl');
   var compass = loadTemplate('css/style.scss');
   var sass = loadTemplate('css/style.sass');
+  var env = loadTemplate('environements/.env');
 
   mkdir(path, function(){
     mkdir(path + '/models');
@@ -128,6 +129,8 @@ function createApplication(app_name, path) {
       }
       complete();
     });
+
+    write(path + '/.env', env);
 
     mkdir(path + '/routes', function(){
       write(path + '/routes/index.js', index);
@@ -174,7 +177,13 @@ function createApplication(app_name, path) {
           'debug': '~2.2.0',
           'morgan': '~1.7.0',
           'mongoose': '*',
-          'serve-favicon': '~2.3.0'
+          "dotenv": "^2.0.0",
+          'serve-favicon': '~2.3.0',
+          "passport": "^0.3.2",
+          "passport-facebook": "^2.1.0",
+          "passport-local": "^1.0.0",
+          "nodemailer": "^2.3.0",
+          "nodemon": "^1.9.1"
       }
     }
 

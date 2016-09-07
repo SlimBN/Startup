@@ -5,11 +5,24 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+var passport = require('passport');
+
+// Load environment variables from .env file
+dotenv.load();
 
 // MongoDB connectors part
 var mongoose = require('mongoose');
 // Change with mongodb database name
-mongoose.connect('mongodb://localhost/startupdb');
+
+mongoose.connect(process.env.MONGODB);
+mongoose.connection.on('error', function() {
+  console.log('MongoDB Connection Error. Please make sure that MongoDB is running.');
+  process.exit(1);
+});
+
+
+// Passport OAuth strategies
+require('./config/passport');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
