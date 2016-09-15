@@ -102,6 +102,8 @@ function createApplication(app_name, path) {
   var www = loadTemplate('js/www');
   var index = loadTemplate('js/routes/index.js');
   var users = loadTemplate('js/routes/users.js');
+  var users_model = loadTemplate('js/models/User.js');
+  var passportjs = loadTemplate('js/config/passport.js');
 
   // CSS
   var css = loadTemplate('css/style.css');
@@ -112,7 +114,11 @@ function createApplication(app_name, path) {
   var env = loadTemplate('environements/.env');
 
   mkdir(path, function(){
+    mkdir(path + '/controllers');
     mkdir(path + '/models');
+    write(path + '/models/User.js', users_model);
+    mkdir(path + '/config');
+    write(path + '/config/passport.js', passportjs);
     mkdir(path + '/public');
     mkdir(path + '/public/javascripts');
     mkdir(path + '/public/images');
